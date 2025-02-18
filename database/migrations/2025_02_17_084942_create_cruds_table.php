@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('cruds', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
+            $table->string('phone', 100);
+            $table->string('location', 100);
             $table->string('email', 255)->default('default@example.com');
-            $table->softDeletes();
             $table->timestamps();
         });
     }
