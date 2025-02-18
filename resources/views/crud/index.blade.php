@@ -19,8 +19,13 @@
                 <td>{{ $crud->name }}</td>
                 <td>{{ $crud->email }}</td>
                 <td>
-                    <a href="{{ route('crud.edit' , $crud->id ) }}">Edit</a> | 
-                    <a href="">Delete</a>
+                    <a href="{{ route('crud.edit' , $crud->id ) }}">Edit</a> |
+                    <form action="{{ route('crud.destroy', $crud->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Delete</button>
+                    </form>
+                    
                 </td>
             </tr> 
         @endforeach 

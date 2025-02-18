@@ -112,19 +112,41 @@ public function update(Request $request, $id)
         'email' => 'required|email|max:255',
     ]);
 
+    // #1
+    // $crud = Crud::findOrFail($id); 
+    // $crud->name = $request->name;
+    // $crud->email = $request->email;
+    // $crud->save();
+    // return redirect()->route('crud.index');
+
+    // #2
     $crud = Crud::findOrFail($id); 
-    $crud->name = $request->name;
-    $crud->email = $request->email;
-    $crud->save();
+    $crud->update([
+        'name' => $request->name,
+        'email' => $request->email
+    ]);
     return redirect()->route('crud.index');
+    
+    // #3
+    // $crud = Crud::findOrFail($id); 
+    // $crud->update($request->all());
+    // return redirect()->route('crud.index');
 }
 
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Crud $crud)
+    public function destroy($id)
     {
-        //
+        // return $id;
+
+        // 1
+        Crud::findorFail($id)->delete();
+        
+        // 2
+        // Crud::destroy($id);
+        
+        return redirect()->route('crud.index');
     }
 }
