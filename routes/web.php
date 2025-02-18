@@ -18,6 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// // Show all students
+// Route::get('/crud', [CrudController::class, 'index'])->name('crud.index');
+
+// // Store a new student
+// Route::post('/crud', [CrudController::class, 'store'])->name('crud.store');
+
+
 
 Route::resource('crud', CrudController::class);
 

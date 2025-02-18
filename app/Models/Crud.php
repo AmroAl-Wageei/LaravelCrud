@@ -17,5 +17,5 @@ class Crud extends Model
     // protected $guarded = ['name'];
 
     
-    public $timestamps = false;
+    // public $timestamps = false;
 }
